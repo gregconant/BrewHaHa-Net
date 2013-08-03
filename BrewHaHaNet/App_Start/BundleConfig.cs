@@ -20,6 +20,9 @@ namespace BrewHaHaNet {
       bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                   "~/Scripts/modernizr-*"));
 
+      bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+                  "~/Scripts/angular*"));
+
       bundles.Add(new ScriptBundle("~/bundles/app").Include(
                   "~/Scripts/app-*"));
 
