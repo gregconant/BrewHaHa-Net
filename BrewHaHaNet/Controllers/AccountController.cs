@@ -9,7 +9,6 @@ using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using BrewHaHaNet.Filters;
-using BrewHaHaNet.Models;
 
 namespace BrewHaHaNet.Controllers {
   [Authorize]

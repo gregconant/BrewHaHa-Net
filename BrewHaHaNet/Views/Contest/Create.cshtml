@@ -1,7 +1,51 @@
-﻿@model BrewHaHaNet.Models.Contest
+﻿@model BrewData.Models.Contest
 
 <div id="create-contest">
   
+  <table>
+    <tr>
+      <td>
+        <div class="editor-label">
+          @Html.LabelFor(model => model.Name)
+        </div>
+      </td>
+      <td>
+        <div class="editor-label">
+          @Html.EditorFor(model => model.Name)
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="editor-label">
+          @Html.LabelFor(model => model.Date)
+        </div>
+      </td>
+      <td>
+        <div class="editor-label">
+          @Html.EditorFor(model => model.Date)
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul>
+      @foreach (var vote in Model.Votes) {
+      
+      }
+        </ul>
+        <div class="editor-label">
+          @Html.LabelFor(model => model.Votes)
+        </div>
+      </td>
+      <td>
+        <div class="editor-label">
+          @Html.EditorFor(model => model.Name)
+        </div>
+      </td>
+    </tr>
+
+  </table>
   
 
 </div>

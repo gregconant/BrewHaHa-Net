@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace BrewHaHaNet.Models {
+﻿namespace BrewData.Models {
   public enum BeerType {
 	Undefined = 0,
 	IPA = 1,

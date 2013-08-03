@@ -5,6 +5,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrewHaHaNet", "BrewHaHaNet\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrewHaHaNet.Tests", "BrewHaHaNet.Tests\BrewHaHaNet.Tests.csproj", "{5E39CCA6-4236-4C70-BE03-BCAF7DC30886}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrewData", "BrewData\BrewData.csproj", "{562986B9-3B6C-4CD9-96D2-0CF41EBF53C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrewData.Tests", "BrewData.Tests\BrewData.Tests.csproj", "{AEFCB8C9-4D45-4A15-BBA5-154F8C51B975}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +23,14 @@ Global
 		{5E39CCA6-4236-4C70-BE03-BCAF7DC30886}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E39CCA6-4236-4C70-BE03-BCAF7DC30886}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E39CCA6-4236-4C70-BE03-BCAF7DC30886}.Release|Any CPU.Build.0 = Release|Any CPU
+		{562986B9-3B6C-4CD9-96D2-0CF41EBF53C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{562986B9-3B6C-4CD9-96D2-0CF41EBF53C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{562986B9-3B6C-4CD9-96D2-0CF41EBF53C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{562986B9-3B6C-4CD9-96D2-0CF41EBF53C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEFCB8C9-4D45-4A15-BBA5-154F8C51B975}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEFCB8C9-4D45-4A15-BBA5-154F8C51B975}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEFCB8C9-4D45-4A15-BBA5-154F8C51B975}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEFCB8C9-4D45-4A15-BBA5-154F8C51B975}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
