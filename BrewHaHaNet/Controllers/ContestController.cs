@@ -5,15 +5,19 @@ using System.Web;
 using System.Web.Mvc;
 using BrewData.Helpers;
 using BrewData.Models;
+using BrewData.Repositories;
+using BrewHaHaNet.ViewModels;
 using Ninject;
 
 namespace BrewHaHaNet.Controllers {
   public class ContestController : Controller {
     private readonly IContestFactory _contestFactory;
+    private readonly IContestRepository _contestRepository;
 
-	[Inject]
-    public ContestController(IContestFactory contestFactory) {
+  [Inject]
+    public ContestController(IContestFactory contestFactory, IContestRepository contestRepository) {
     _contestFactory = contestFactory;
+    _contestRepository = contestRepository;
   }
 
     //
@@ -34,17 +38,18 @@ namespace BrewHaHaNet.Controllers {
     // GET: /Contest/Create
 
     public ActionResult Create() {
-      return View(new Contest { Date = DateTime.Today });
+      return View(_contestFactory.Create());
     }
 
     //
     // POST: /Contest/Create
 
     [HttpPost]
-    public ActionResult Create(FormCollection collection) {
+    public ActionResult Create(ContestViewModel contest) {
       try {
         // TODO: Add insert logic here
-
+        _contestRepository.Create(contest.ToContest());
+        TempData["CreateResult"] = "Contest Created.";
         return RedirectToAction("Index");
       } catch {
         return View();

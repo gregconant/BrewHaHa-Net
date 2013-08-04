@@ -1,4 +1,6 @@
-﻿using BrewData.Models;
+﻿using System;
+using System.ComponentModel;
+using BrewData.Models;
 
 namespace BrewData.Helpers {
   public interface IContestFactory {
@@ -6,12 +8,19 @@ namespace BrewData.Helpers {
   }
 
   public class ContestFactory : IContestFactory {
-    #region IContestFactory Members
 
-    public Contest Create() {
-      throw new System.NotImplementedException();
+    private IGuidFactory guidFactory;
+
+    public ContestFactory(IGuidFactory factory) {
+      guidFactory = factory;
     }
 
-    #endregion
+    public Contest Create() {
+      return new Contest {
+        Id = guidFactory.NewGuid(),
+        Date = DateTime.Today,
+        Votes = new BindingList<Vote>()
+      };
+    }
   }
 }

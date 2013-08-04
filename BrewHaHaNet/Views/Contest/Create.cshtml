@@ -1,51 +1,68 @@
 ﻿@model BrewData.Models.Contest
+<section class="featured">
+  <div class="content-wrapper">
+    <div id="create-contest">
+      @using (Html.BeginForm()) {
+        <table>
+          <tr>
+            <td>
+              @Html.HiddenFor(model => model.Id)
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="editor-label">
+                @Html.LabelFor(model => model.Name)
+              </div>
+            </td>
+            <td>
+              <div class="editor-label">
+                @Html.EditorFor(model => model.Name)
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="editor-label">
+                @Html.LabelFor(model => model.Date)
+              </div>
+            </td>
+            <td>
+              <div class="editor-label">
+                @Html.EditorFor(model => model.Date)
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="editor-label">
+                @Html.LabelFor(model => model.Votes)
+              </div>
+            </td>
+          
+            <td>
+              @if (Model.Votes.Any()) {
 
-<div id="create-contest">
-  
-  <table>
-    <tr>
-      <td>
-        <div class="editor-label">
-          @Html.LabelFor(model => model.Name)
-        </div>
-      </td>
-      <td>
-        <div class="editor-label">
-          @Html.EditorFor(model => model.Name)
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <div class="editor-label">
-          @Html.LabelFor(model => model.Date)
-        </div>
-      </td>
-      <td>
-        <div class="editor-label">
-          @Html.EditorFor(model => model.Date)
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <ul>
-      @foreach (var vote in Model.Votes) {
-      
+                <ul>
+                  @foreach (var vote in Model.Votes) {
+                    <li>
+                      <span>@vote.Choice</span>
+                    </li>
+                  }
+                </ul>
+              } else {
+                <div>(No Votes Yet)</div>
+              }
+            </td>
+          </tr>
+
+        </table>
+    <div class="ui-buttonset">
+    <input type="submit" title="Create" />
+    @Html.ActionLink("Cancel", "Index", "Contest")
+    </div>
       }
-        </ul>
-        <div class="editor-label">
-          @Html.LabelFor(model => model.Votes)
-        </div>
-      </td>
-      <td>
-        <div class="editor-label">
-          @Html.EditorFor(model => model.Name)
-        </div>
-      </td>
-    </tr>
 
-  </table>
-  
-
-</div>
+    </div>
+  </div>
+</section>
