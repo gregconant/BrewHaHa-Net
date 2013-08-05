@@ -19,7 +19,8 @@ namespace BrewData.Helpers {
       return new Contest {
         Id = guidFactory.NewGuid(),
         Date = DateTime.Today,
-        Votes = new BindingList<Vote>()
+        Votes = new BindingList<Vote>(),
+        Beers = new BindingList<Beer>()
       };
     }
   }

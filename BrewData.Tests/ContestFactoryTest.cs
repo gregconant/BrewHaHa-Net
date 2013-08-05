@@ -33,7 +33,6 @@ namespace BrewData.Tests {
     public void Create_SetsDefaultVotes() {
       var result = sut.Create();
       result.Votes.ShouldBeEquivalentTo(new List<Vote>());
-
     }
 
     [Test]
@@ -43,6 +42,13 @@ namespace BrewData.Tests {
       var result = sut.Create();
       guidFactory.Verify(f => f.NewGuid());
       result.Id.ShouldBeEquivalentTo(testGuid);
+
+    }
+
+    [Test]
+    public void Create_SetsDefaultBeers() {
+      var result = sut.Create();
+      result.Beers.ShouldBeEquivalentTo(new List<Beer>());
 
     }
   }

@@ -35,6 +35,44 @@
           </tr>
           <tr>
             <td>
+              
+              <div class="editor-label">
+                @Html.LabelFor(model => model.Beers)
+              </div>
+            </td>
+            <td>
+              @if (Model.Beers.Any()) {
+                <ul class="beer-list">
+                  @for (var i = 0; i < Model.Beers.Count(); i++) {
+                  <li>
+                    <div>
+                      <div>
+                  @Html.LabelFor(model => model.Beers.ElementAt(i).Name)
+                  @Html.EditorFor(model => model.Beers.ElementAt(i).Name)
+                      </div>
+                      <div>
+                  @Html.LabelFor(model => model.Beers.ElementAt(i).Type)
+                  @Html.EditorFor(model => model.Beers.ElementAt(i).Type)
+                      </div>
+                      <div>
+                  @Html.LabelFor(model => model.Beers.ElementAt(i).BrewedBy)
+                  @Html.EditorFor(model => model.Beers.ElementAt(i).BrewedBy)
+                      </div>
+                    </div>
+                  </li>
+                
+                  }
+                </ul>
+              } else {
+                
+              }
+              <div class="ui-buttonset">
+                <button class="add-beer" value="Add"></button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
               <div class="editor-label">
                 @Html.LabelFor(model => model.Votes)
               </div>
