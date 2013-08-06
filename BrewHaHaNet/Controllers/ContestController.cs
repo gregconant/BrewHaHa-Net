@@ -38,7 +38,7 @@ namespace BrewHaHaNet.Controllers {
     // GET: /Contest/Create
 
     public ActionResult Create() {
-      return View(_contestFactory.Create());
+      return View(ContestViewModel.FromContest((_contestFactory.Create())));
     }
 
     //

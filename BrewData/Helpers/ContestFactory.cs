@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using BrewData.Models;
 
 namespace BrewData.Helpers {
@@ -19,7 +21,7 @@ namespace BrewData.Helpers {
       return new Contest {
         Id = guidFactory.NewGuid(),
         Date = DateTime.Today,
-        Votes = new BindingList<Vote>()
+        Votes = new BindingList<Vote>(),
       };
     }
   }
