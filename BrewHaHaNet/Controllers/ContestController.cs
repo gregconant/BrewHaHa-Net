@@ -24,7 +24,7 @@ namespace BrewHaHaNet.Controllers {
     // GET: /Contest/
 
     public ActionResult Index() {
-      return View();
+      return View(_contestRepository.GetAll().Select(ContestViewModel.FromContest));
     }
 
     //
@@ -38,7 +38,8 @@ namespace BrewHaHaNet.Controllers {
     // GET: /Contest/Create
 
     public ActionResult Create() {
-      return View(ContestViewModel.FromContest((_contestFactory.Create())));
+      var contest = _contestFactory.Create();
+      return View(ContestViewModel.FromContest((contest)));
     }
 
     //
@@ -48,7 +49,7 @@ namespace BrewHaHaNet.Controllers {
     public ActionResult Create(ContestViewModel contest) {
       try {
         // TODO: Add insert logic here
-        _contestRepository.Create(contest.ToContest());
+        var created = _contestRepository.Create(contest.ToContest());
         TempData["CreateResult"] = "Contest Created.";
         return RedirectToAction("Index");
       } catch {
@@ -57,9 +58,9 @@ namespace BrewHaHaNet.Controllers {
     }
 
     //
-    // GET: /Contest/Edit/5
+    // GET: /Contest/Load/5
 
-    public ActionResult Edit(int id) {
+    public ActionResult Load(int id) {
       return View();
     }
 
@@ -67,7 +68,7 @@ namespace BrewHaHaNet.Controllers {
     // POST: /Contest/Edit/5
 
     [HttpPost]
-    public ActionResult Edit(int id, FormCollection collection) {
+    public ActionResult Save(int id, FormCollection collection) {
       try {
         // TODO: Add update logic here
 

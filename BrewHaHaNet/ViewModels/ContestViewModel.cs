@@ -6,15 +6,15 @@ using System.Web.Mvc;
 using BrewData.Models;
 
 namespace BrewHaHaNet.ViewModels {
-  public struct ContestViewModel {
+  public class ContestViewModel {
 
-    private IEnumerable<SelectListItem> beerChoices;
+    private readonly IEnumerable<SelectListItem> beerChoices;
 
     public Guid Id { get; set; }
     public string Name { get; set; }
     public DateTime Date { get; set; }
     public int NumberOfBeers { get; set; }
-    public IEnumerable<SelectListItem> BeerChoices { get { return Enumerable.Range(0, 10).Select(num => new SelectListItem { Value = num.ToString(), Text = num.ToString() }); } set { beerChoices = value; } }
+    public IEnumerable<SelectListItem> BeerChoices { get { return Enumerable.Range(0, 10).Select(num => new SelectListItem { Value = num.ToString(), Text = num.ToString() }); } }
     public IEnumerable<Vote> Votes { get; set; }
 
     public static ContestViewModel FromContest(Contest contest) {

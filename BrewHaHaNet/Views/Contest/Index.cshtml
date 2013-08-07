@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<BrewHaHaNet.ViewModels.ContestViewModel>
+@{
     ViewBag.Title = "Brew-Ha-Ha Home Page";
 }
 @section featured {
@@ -9,7 +10,7 @@
                 <h2>@ViewBag.Message</h2>
             </hgroup>
             <p>
-                Welcome to the Brew-Ha-Ha, the premier beer brewing contest of the year!
+                Welcome to the Brew-Ha-Ha, the premier beer-brewing contest of the year!
             </p>
         </div>
     </section>
@@ -22,7 +23,8 @@
     </li>
 
     <li class="two">
-      <h5>Work With Existing Contest</h5>
+      <h5>Work With Existing Contest:</h5>
+
     @Html.ActionLink("Continue", "Load")
     </li>
 
