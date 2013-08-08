@@ -1,9 +1,9 @@
-﻿@model IEnumerable<BrewHaHaNet.ViewModels.ContestViewModel>
+﻿@model BrewHaHaNet.ViewModels.ContestListViewModel
 @{
-    ViewBag.Title = "Brew-Ha-Ha Home Page";
+  ViewBag.Title = "Brew-Ha-Ha Home Page";
 }
 @section featured {
-    <section class="featured">
+  <section class="featured">
         <div class="content-wrapper">
             <hgroup class="title">
                 <h1>@ViewBag.Title.</h1>
@@ -15,18 +15,29 @@
         </div>
     </section>
 }
-<h3>Do you want to:</h3>
+<h3>
+  Do you want to:</h3>
 <ol class="round">
-    <li class="one">
-      <h5>Start A New Contest</h5>
-      @Html.ActionLink("New", "Create")
-    </li>
-
-    <li class="two">
-      <h5>Work With Existing Contest:</h5>
-
-    @Html.ActionLink("Continue", "Load")
-    </li>
-
+  <li class="one">
+    <h5>
+      Start A New Contest</h5>
+    @Html.ActionLink("New", "Create")
+  </li>
+  <li class="two">
+    @if (Model.Contests.Any()) {
+      <h5>
+        Work With Existing Contest:</h5>
+      <select class="existing-contests">
+        @foreach (var contest in Model.Contests) {
+          <option value="@contest.Value">@contest.Text</option>
+        }
+      </select>
+      <button id="continue-button">Something</button>
+      @Html.ActionLink("Continue", "Load", "Contest" )
+    } else {
+      <div>
+        (No Contests Yet)</div>
+    }
+  </li>
 </ol>
-  <div class="message-success">@TempData["CreateResult"]</div>
+<div class="message-success">@TempData["CreateResult"]</div>

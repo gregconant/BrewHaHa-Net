@@ -6,6 +6,7 @@ using BrewData.Helpers;
 using BrewData.Repositories;
 using Ninject.Modules;
 using Ninject.Extensions.Conventions;
+using BrewHaHaNet.Factories;
 
 namespace BrewHaHaNet {
   public class BrewHaHaNinjectModule : NinjectModule {
@@ -24,6 +25,10 @@ namespace BrewHaHaNet {
       Bind<IGuidFactory>()
         .To<GuidFactory>()
         .InSingletonScope();
+
+      Bind<IContestListFactory>()
+        .To<ContestListFactory>()
+        .InTransientScope();
     }
   }
 }

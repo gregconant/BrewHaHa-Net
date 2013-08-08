@@ -1,10 +1,14 @@
-(function() {
-  window.CreateContest = function() {
-    return console.log('creating contest');
-  };
+var BrewHaHa = BrewHaHa || { };
 
-  jQuery(function() {
-    return $("#create-contest").each(window.CreateContest);
-  });
+BrewHaHa.CreateContest = {
+  init: function(index, value) {
+    $("#continue-button").click(function() {
+      console.log("something");
+    });
+  }
+};
 
-}).call(this);
+$(function () {
+  $(".existing-contests").each(BrewHaHa.CreateContest.init);
+});
+

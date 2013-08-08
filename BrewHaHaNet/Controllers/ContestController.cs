@@ -6,25 +6,35 @@ using System.Web.Mvc;
 using BrewData.Helpers;
 using BrewData.Models;
 using BrewData.Repositories;
+using BrewHaHaNet.Factories;
 using BrewHaHaNet.ViewModels;
 using Ninject;
 
 namespace BrewHaHaNet.Controllers {
   public class ContestController : Controller {
-    private readonly IContestFactory _contestFactory;
-    private readonly IContestRepository _contestRepository;
+    private readonly IContestFactory contestFactory;
+    private readonly IContestRepository contestRepository;
+    private readonly IContestListFactory contestListFactory;
 
-  [Inject]
-    public ContestController(IContestFactory contestFactory, IContestRepository contestRepository) {
-    _contestFactory = contestFactory;
-    _contestRepository = contestRepository;
-  }
+    [Inject]
+    public ContestController(IContestFactory contestFactory, IContestRepository contestRepository, IContestListFactory contestListFactory) {
+      this.contestFactory = contestFactory;
+      this.contestRepository = contestRepository;
+      this.contestListFactory = contestListFactory;
+    }
 
     //
     // GET: /Contest/
 
     public ActionResult Index() {
-      return View(_contestRepository.GetAll().Select(ContestViewModel.FromContest));
+      var contests = contestRepository.GetAll();
+      var viewModels = contests.Select(ContestViewModel.FromContest);
+      var selectList = contestListFactory.FromContestViewModels(viewModels);
+
+      return View(new ContestListViewModel {
+        Contests = selectList
+      });
+
     }
 
     //
@@ -38,7 +48,7 @@ namespace BrewHaHaNet.Controllers {
     // GET: /Contest/Create
 
     public ActionResult Create() {
-      var contest = _contestFactory.Create();
+      var contest = contestFactory.Create();
       return View(ContestViewModel.FromContest((contest)));
     }
 
@@ -49,7 +59,7 @@ namespace BrewHaHaNet.Controllers {
     public ActionResult Create(ContestViewModel contest) {
       try {
         // TODO: Add insert logic here
-        var created = _contestRepository.Create(contest.ToContest());
+        var created = contestRepository.Create(contest.ToContest());
         TempData["CreateResult"] = "Contest Created.";
         return RedirectToAction("Index");
       } catch {

@@ -1,5 +1,8 @@
 window.CreateContest = ->
-  console.log('creating contest')
+  $("#continue-button").click  ->
+    console.log("something")
+    null
+  null
   
 jQuery ->
-  $("#create-contest").each(window.CreateContest)
+  $("#existing-contests").each(window.CreateContest)

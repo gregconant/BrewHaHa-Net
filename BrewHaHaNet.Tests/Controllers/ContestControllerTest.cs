@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
 using System.Web.Mvc;
@@ -8,6 +9,7 @@ using BrewData.Helpers;
 using BrewData.Messages;
 using BrewData.Models;
 using BrewHaHaNet.Controllers;
+using BrewHaHaNet.Factories;
 using BrewHaHaNet.ViewModels;
 using FluentAssertions;
 using Moq;
@@ -23,6 +25,7 @@ namespace BrewHaHaNet.Tests.Controllers {
   public class ContestControllerTest {
     private AutoMoqer mocker;
     private Mock<IContestFactory> contestFactory;
+    private Mock<IContestListFactory> contestListFactory;
     private Mock<IContestRepository> repo;
     /// <summary>
     ///Gets or sets the test context which provides
@@ -33,6 +36,7 @@ namespace BrewHaHaNet.Tests.Controllers {
       mocker = new AutoMoqer();
       contestFactory = mocker.GetMock<IContestFactory>();
       repo = mocker.GetMock<IContestRepository>();
+      contestListFactory = mocker.GetMock<IContestListFactory>();
     }
 
     [Test]
@@ -75,23 +79,35 @@ namespace BrewHaHaNet.Tests.Controllers {
     [Test]
     public void Index_ReturnsListOfContests() {
 
+      var testGuid = Guid.NewGuid();
+
       var expectedResults = new List<Contest> {
                                                 new Contest {
-                                                              Id = Guid.NewGuid(),
+                                                              Id = testGuid,
                                                               Name = "Test"
                                                             }
                                               };
+
+      var expectedViewModel = 
+        new SelectList(
+          new List<ContestViewModel> {
+            new ContestViewModel { Id = testGuid, Name = "Test"}
+          } );
+
       repo.Setup(r => r.GetAll()).Returns(expectedResults);
+
+      contestListFactory
+        .Setup(r => r.FromContestViewModels(It.IsAny<IEnumerable<ContestViewModel>>()))
+        .Returns(expectedViewModel);
 
       var sut = mocker.Resolve<ContestController>();
 
       var result = sut.Index() as ViewResult;
       repo.Verify(r => r.GetAll());
       Assert.NotNull(result);
-      var model = result.Model as IEnumerable<ContestViewModel>;
+      var model = result.Model as ContestListViewModel;
       Assert.NotNull(model);
-      model.Should().HaveCount(1);
-      model.ElementAt(0).Name.Should().BeEquivalentTo("Test");
+      model.Contests.Should().HaveCount(1);
     }
 
   }
