@@ -356,6 +356,9 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Images\beer-flight.jpg" />
+    <Content Include="packages\Microsoft.Bcl.Build.1.0.8\tools\Microsoft.Bcl.Build.Tasks.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Scripts\angular-bootstrap-prettify.js" />
     <Content Include="Scripts\angular-bootstrap-prettify.min.js" />
     <Content Include="Scripts\angular-bootstrap.js" />
@@ -733,6 +736,9 @@
     <None Include="Content\Site.scss" />
     <Content Include="Views\Contest\Create.cshtml" />
     <Content Include="Views\Contest\Load.cshtml" />
+    <None Include="packages\Microsoft.Bcl.Build.1.0.8\tools\Microsoft.Bcl.Build.targets">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Scripts\contest-create.coffee" />
   </ItemGroup>
   <ItemGroup>
@@ -770,7 +776,7 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.8\tools\Microsoft.Bcl.Build.targets" />
+  <Import Project=".\bin\packages\Microsoft.Bcl.Build.1.0.8\tools\Microsoft.Bcl.Build.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
