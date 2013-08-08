@@ -70,7 +70,7 @@ namespace BrewHaHaNet.Controllers {
     //
     // GET: /Contest/Load/5
 
-    public ActionResult Load(int id) {
+    public ActionResult Load(Guid id) {
       return View();
     }
 

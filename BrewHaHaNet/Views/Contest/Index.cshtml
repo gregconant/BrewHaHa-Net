@@ -28,12 +28,12 @@
       <h5>
         Work With Existing Contest:</h5>
       <select class="existing-contests">
+        <option value="0">Select a Contest</option>
         @foreach (var contest in Model.Contests) {
           <option value="@contest.Value">@contest.Text</option>
         }
       </select>
-      <button id="continue-button">Something</button>
-      @Html.ActionLink("Continue", "Load", "Contest" )
+      @Html.ActionLink("Continue", "Load", "Contest", new { id = "continue-button" })
     } else {
       <div>
         (No Contests Yet)</div>

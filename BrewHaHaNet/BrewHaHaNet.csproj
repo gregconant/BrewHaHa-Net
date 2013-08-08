@@ -732,8 +732,8 @@
   <ItemGroup>
     <None Include="Content\Site.scss" />
     <Content Include="Views\Contest\Create.cshtml" />
-    <None Include="Scripts\contest-create.coffee" />
     <Content Include="Views\Contest\Load.cshtml" />
+    <None Include="Scripts\contest-create.coffee" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BrewData\BrewData.csproj">
