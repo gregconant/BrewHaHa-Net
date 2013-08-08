@@ -6,8 +6,6 @@ using System.Reflection;
 namespace BrewHaHaNet.App_Start {
   using System;
   using System.Web;
-  using Ninject.Extensions.Conventions;
-
   using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
   using Ninject;

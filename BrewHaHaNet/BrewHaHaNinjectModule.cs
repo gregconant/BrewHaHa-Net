@@ -5,7 +5,6 @@ using System.Web;
 using BrewData.Helpers;
 using BrewData.Repositories;
 using Ninject.Modules;
-using Ninject.Extensions.Conventions;
 using BrewHaHaNet.Factories;
 
 namespace BrewHaHaNet {
