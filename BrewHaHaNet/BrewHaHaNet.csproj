@@ -39,6 +39,9 @@
     <Reference Include="DotNetOpenAuth.AspNet">
       <HintPath>..\lib\DotNetOpenAuth.AspNet.dll</HintPath>
     </Reference>
+    <Reference Include="DotNetOpenAuth.Core">
+      <HintPath>..\lib\DotNetOpenAuth.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp">
       <Private>True</Private>
     </Reference>
