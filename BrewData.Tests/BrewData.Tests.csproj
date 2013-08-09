@@ -38,7 +38,7 @@
       <HintPath>..\lib\FluentAssertions.dll</HintPath>
     </Reference>
     <Reference Include="Moq">
-      <HintPath>..\lib\NET40\Moq.dll</HintPath>
+      <HintPath>..\lib\Moq.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework, Version=2.6.2.12296, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
