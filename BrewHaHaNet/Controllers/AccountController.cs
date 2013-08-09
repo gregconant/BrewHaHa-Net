@@ -10,6 +10,13 @@ using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
 using BrewHaHaNet.Filters;
 using WebMatrix.WebData;
+using ExternalLogin = BrewHaHaNet.Models.ExternalLogin;
+using LocalPasswordModel = BrewHaHaNet.Models.LocalPasswordModel;
+using LoginModel = BrewHaHaNet.Models.LoginModel;
+using RegisterExternalLoginModel = BrewHaHaNet.Models.RegisterExternalLoginModel;
+using RegisterModel = BrewHaHaNet.Models.RegisterModel;
+using UserProfile = BrewHaHaNet.Models.UserProfile;
+using UsersContext = BrewHaHaNet.Models.UsersContext;
 
 namespace BrewHaHaNet.Controllers {
   [Authorize]

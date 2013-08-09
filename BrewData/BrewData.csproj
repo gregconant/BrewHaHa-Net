@@ -52,7 +52,6 @@
     <Compile Include="Helpers\GuidFactory.cs" />
     <Compile Include="Repositories\ContestRepository.cs" />
     <Compile Include="Helpers\ContestFactory.cs" />
-    <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Beer.cs" />
     <Compile Include="Models\BeerRating.cs" />
     <Compile Include="Models\BeerType.cs" />

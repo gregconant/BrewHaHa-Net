@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Web.Mvc;
 
-namespace BrewData.Models {
+namespace BrewHaHaNet.Models {
   public class UsersContext : DbContext {
     public UsersContext()
       : base("DefaultConnection") {

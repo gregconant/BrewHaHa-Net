@@ -5,6 +5,7 @@ using System.Threading;
 using System.Web.Mvc;
 using BrewData.Models;
 using WebMatrix.WebData;
+using UsersContext = BrewHaHaNet.Models.UsersContext;
 
 namespace BrewHaHaNet.Filters {
   [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
