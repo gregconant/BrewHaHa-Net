@@ -8,8 +8,8 @@ using System.Web.Security;
 using BrewData.Models;
 using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
-using WebMatrix.WebData;
 using BrewHaHaNet.Filters;
+using WebMatrix.WebData;
 
 namespace BrewHaHaNet.Controllers {
   [Authorize]
