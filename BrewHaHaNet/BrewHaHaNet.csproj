@@ -200,7 +200,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Images\beer-flight.jpg" />
-    <Content Include="packages\Microsoft.Bcl.Build.1.0.8\tools\Microsoft.Bcl.Build.Tasks.dll">
+    <Content Include="..\lib\Microsoft.Bcl.Build.1.0.8\Microsoft.Bcl.Build.Tasks.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Scripts\angular-bootstrap-prettify.js" />
@@ -580,7 +580,7 @@
     <None Include="Content\Site.scss" />
     <Content Include="Views\Contest\Create.cshtml" />
     <Content Include="Views\Contest\Load.cshtml" />
-    <None Include="packages\Microsoft.Bcl.Build.1.0.8\tools\Microsoft.Bcl.Build.targets">
+    <None Include="..\lib\Microsoft.Bcl.Build.1.0.8\Microsoft.Bcl.Build.targets">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Scripts\contest-create.coffee" />
